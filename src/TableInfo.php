@@ -13,30 +13,21 @@ use support\Db;
  */
 class TableInfo
 {
-    /**
-     * 连接名
-     * @var string|null
-     */
+
+    /** @var string|null 数据库连接配置 */
     public ?string $connection = null;
 
-    /**
-     * @var string 表名
-     */
+    /** @var string 数据表名 */
     public string $table = '';
 
-    /**
-     * @var array 连接配置项
-     */
+    /** @var array 连接配置项 */
     public array $config = [];
 
-    /**
-     * @var string|null 表注释
-     */
+
+    /** @var string|null 表注释 */
     public ?string $comment = null;
 
-    /**
-     * @var ColumnInfo[] 列信息
-     */
+    /** @var array 列信息 */
     public array $columns = [];
 
     /**

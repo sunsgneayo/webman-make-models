@@ -6,30 +6,30 @@ namespace Sunsgne\WebmanMakeModels;
 
 use stdClass;
 
+
 /**
- * 列信息
+ * 数据表列信息
+ * @Time 2023/6/14 18:43
+ * @author sunsgne
  */
 class ColumnInfo
 {
-    /**
-     * @var string 列名
-     */
+    /** @var string 名称 */
     public string $name = '';
 
-    /**
-     * @var string 列类型
-     */
+
+    /** @var string 类型 */
     public string $type = '';
 
-    /**
-     * @var string|null 列注释
-     */
+    /** @var string|null 注释文本 */
     public ?string $comment = null;
 
     /**
      * 从mysql行数据解析列类型
      * @param stdClass $info
      * @return ColumnInfo
+     * @Time 2023/6/14 18:44
+     * @author sunsgne
      */
     public static function fromMysql(stdClass $info): ColumnInfo
     {
@@ -64,6 +64,13 @@ class ColumnInfo
         return $column;
     }
 
+    /**
+     * 从pgsql获取列信息
+     * @param stdClass $info
+     * @return ColumnInfo
+     * @Time 2023/6/14 18:44
+     * @author sunsgne
+     */
     public static function fromPgsql(stdClass $info): ColumnInfo
     {
         $column = new ColumnInfo();

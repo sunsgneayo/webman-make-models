@@ -9,23 +9,19 @@ namespace Sunsgne\WebmanMakeModels;
  */
 final class TokenAnalysis
 {
-    /**
-     * @var string 命名空间
-     */
+    /** @var string 命名空间 */
     public string $namespace = '';
 
-    /**
-     * @var array 类列表
-     */
+    /** @var array 类列表 */
     public array $classes = [];
 
-    /**
-     * @var array use列表
-     */
+    /** @var array use列表 */
     public array $uses = [];
 
+    /** @var array  */
     private array $_tokenStack = [];
 
+    /** @var int  */
     private int $_level = 0;
 
     /**

@@ -108,7 +108,7 @@ class MakeModels
      * @Time 2023/6/14 13:17
      * @author sunsgne
      */
-    protected function makeFile(string $file, string $tableName, string $fileName)
+    protected function makeFile(string $file, string $tableName, string $fileName): void
     {
         $info             = new TableInfo();
         $info->table      = $tableName;
