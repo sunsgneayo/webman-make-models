@@ -4,7 +4,7 @@
 
 **<p align="center">sunsgne/webman-make-models</p>**
 
-**<p align="center">🐬 Webman's shortcut routing based on annotation scheme 🐬</p>**
+**<p align="center">🐬 Webman's Generate a model file from the command line 🐬</p>**
 
 <div align="center">
 
@@ -16,4 +16,4 @@
 
 </div>
 
-# webman  annotation 注解路由
+# webman-make-models
