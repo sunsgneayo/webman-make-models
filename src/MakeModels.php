@@ -13,7 +13,7 @@ use Throwable;
 /**
  * 模型分析器
  */
-class Make
+class MakeModels
 {
     protected array $_callbacks = [];
 
@@ -41,6 +41,9 @@ class Make
      */
     protected array $_processedClasses = [];
 
+    /** @var string 默认的 */
+    protected string $_defaultNamespace = 'app\model';
+
     /**
      * @param string $tableName
      * @return void
@@ -48,15 +51,12 @@ class Make
     public function run(string $tableName): void
     {
         $this->_processedFiles = [];
-
         $dir = $this->snake2camel($tableName, true);
-
-
         $file = app_path() . DIRECTORY_SEPARATOR . 'model' . DIRECTORY_SEPARATOR . $dir . '.php';
         if (is_file($file)) {
+            /** 文件存在，去获取表结构信息并写入 */
             $this->processFile(realpath($file));
             //当前文件存在
-            dump(1);
         } else {
             /** 文件不存在，去生成 */
             $this->makeFile($file, $tableName, $dir);
@@ -84,6 +84,14 @@ class Make
         }
     }
 
+    /**
+     * 蛇形转大驼峰
+     * @param string $string
+     * @param bool $ucFirst
+     * @return string
+     * @Time 2023/6/14 17:12
+     * @author sunsgne
+     */
     protected function snake2camel(string $string, bool $ucFirst = false): string
     {
         $camel = preg_replace_callback('/_([a-zA-Z])/', function ($match) {
@@ -93,9 +101,9 @@ class Make
     }
 
     /**
-     * @param string $file
-     * @param string $tableName
-     * @param string $fileName
+     * @param string $file 文件路径
+     * @param string $tableName 表名
+     * @param string $fileName 文件名
      * @return void
      * @Time 2023/6/14 13:17
      * @author sunsgne
@@ -104,7 +112,7 @@ class Make
     {
         $info             = new TableInfo();
         $info->table      = $tableName;
-        $info->connection = 'default';
+        $info->connection = '';
         $info->config     = Db::connection($info->connection)->getConfig();
         $info->readTableComment();
 
@@ -118,11 +126,10 @@ class Make
         }
         $commentLines .= ' */' . PHP_EOL;
         $table = '$table';
-        $namespace = 'app\model';
         $controller_content = <<<EOF
 <?php
 
-namespace $namespace;
+namespace $this->_defaultNamespace
 
 use support\Model;
 $commentLines
@@ -138,7 +145,7 @@ class $fileName extends Model
 
 EOF;
         file_put_contents($file, $controller_content);
-        $this->report($file, $namespace.DIRECTORY_SEPARATOR.$fileName);
+        $this->report($file, $this->_defaultNamespace.DIRECTORY_SEPARATOR.$fileName);
     }
 
     /**

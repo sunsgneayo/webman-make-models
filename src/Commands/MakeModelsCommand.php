@@ -6,7 +6,7 @@ namespace Sunsgne\WebmanMakeModels\Commands;
 
 
 use Sunsgne\WebmanMakeModels\SyncResult;
-use Sunsgne\WebmanMakeModels\Make;
+use Sunsgne\WebmanMakeModels\MakeModels;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -35,7 +35,7 @@ class MakeModelsCommand extends Command
             $output->writeln('table_name 不能为空');
         }
 
-        $analyser = new Make();
+        $analyser = new MakeModels();
         $analyser->onProcess(function (SyncResult $result) use ($output): void {
             $output->write($result->class . ' ');
             if ($result->exception) {
