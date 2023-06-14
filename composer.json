@@ -1,11 +1,11 @@
 {
-    "name": "sunsgen/webman-make-models",
-    "description": "webman make models",
+    "name": "sunsgne/webman-make-models",
+    "description": "webman console make models",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sunsgen\\WebmanMakeModels\\": "src/"
+            "Sunsgne\\WebmanMakeModels\\": "src/"
         }
     },
     "authors": [
@@ -15,6 +15,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "sunsgne/annotations": "^1.1"
+       "webman/console": "^1.2",
     }
 }
