@@ -15,6 +15,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": ">=8.0",
        "webman/console": "^1.2"
     }
 }
