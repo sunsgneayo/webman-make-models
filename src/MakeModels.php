@@ -129,7 +129,7 @@ class MakeModels
         $controller_content = <<<EOF
 <?php
 
-namespace $this->_defaultNamespace
+namespace $this->_defaultNamespace;
 
 use support\Model;
 $commentLines
