@@ -1,0 +1,13 @@
+{
+  "name": "sunsgne/webman-make-models",
+  "type": "library",
+  "license": "MIT",
+  "description": "Webman plugin sunsgne/webman-make-models",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Sunsgne\\WebmanMakeModels\\": "src"
+    }
+  }
+}
