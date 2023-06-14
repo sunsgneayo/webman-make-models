@@ -17,3 +17,20 @@
 </div>
 
 # webman-make-models
+
+一行命令根据表名生成对应的`models`文件
+
+## 安装
+```shell
+composer require sunsgne/webman-make-models
+```
+
+## 使用
+```shell
+./webman make:models `$tableName`
+```
+
+## 返回示例
+```shell
+app\model\Users 同步成功
+```
