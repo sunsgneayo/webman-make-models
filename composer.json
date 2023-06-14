@@ -1,21 +1,21 @@
 {
-    "name": "sunsgne/webman-make-models",
-    "description": "webman console make models",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Sunsgne\\WebmanMakeModels\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "sunsgne"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=8.0",
-       "webman/console": "^1.2"
+  "name": "sunsgne/webman-make-models",
+  "description": "webman console make models",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Sunsgne\\WebmanMakeModels\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "sunsgne"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.0",
+    "webman/console": "^1.2"
+  }
 }
