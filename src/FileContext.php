@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-namespace Sunsgne\WebmanMakeModels;
 
+namespace Sunsgne\WebmanMakeModels;
 
 
 /**
@@ -29,9 +29,9 @@ class FileContext
      */
     public function __construct(string $file)
     {
-        $this->content = file_get_contents($file);
-        $this->lines = preg_split('/(\\r\\n)|\\n|\\r/', $this->content);
-        $tokens = token_get_all($this->content);
+        $this->content  = file_get_contents($file);
+        $this->lines    = preg_split('/(\\r\\n)|\\n|\\r/', $this->content);
+        $tokens         = token_get_all($this->content);
         $this->analysis = new TokenAnalysis($tokens);
     }
 }
