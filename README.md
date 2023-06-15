@@ -18,7 +18,7 @@
 
 # webman-make-models
 
-一行命令根据表名生成对应的`models`文件
+一行命令根据表名生成对应的`models`文件,如果文件存在则读取表信息同步到models的注释上
 
 ## 安装
 ```shell
